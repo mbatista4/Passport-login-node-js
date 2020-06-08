@@ -8,6 +8,8 @@
   const flash = require('connect-flash');
   const session = require('express-session');
   const passport = require('passport');
+  const methodOverride = require('method-override');
+
 
   const app = express();
 
@@ -24,6 +26,7 @@
   //EJS
   app.use(expressLayouts);
   app.set('view engine', 'ejs');
+  app.use(methodOverride('_method'));
 
   // BodyParser
   app.use(express.urlencoded({

@@ -117,5 +117,16 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 })
 
+// Delete User 
+router.delete('/delete', async (req, res) => {
+    try {
+        await req.user.remove();
+        req.logOut();
+        req.flash('success_msg', 'You deleted your account!');
+        res.redirect('/');
+    } catch {
+
+    }
+});
 
 module.exports = router;
